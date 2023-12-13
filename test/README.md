@@ -33,6 +33,9 @@ class ViewController: UIViewController {
 }    
 ```
 
+
+
+
 ### Step 2
 - In the any other View Controller, use the API's and condinally create transcendWebView view and attach it as a subView.
 
@@ -68,3 +71,7 @@ class View2Controller: UIViewController {
     }
 }
 ```
+
+https://github.com/transcend-io/ios-consent-examples/assets/23165664/8f1a7230-3eb7-4009-8dde-7b3df3b781ab
+
+
