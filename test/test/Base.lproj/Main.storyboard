@@ -42,12 +42,26 @@
                                     <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchDown" id="RhB-8o-Xm9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gay-0j-GHK">
+                                <rect key="frame" x="87.666666666666686" y="299" width="218" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Use the home storyboard"/>
+                                <connections>
+                                    <action selector="storybtnCLICKED:" destination="BYZ-38-t0r" eventType="touchDown" id="vbh-0d-egs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Gay-0j-GHK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-8.5" id="1h7-ij-MN4"/>
+                            <constraint firstItem="Gay-0j-GHK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1jU-0b-nhT"/>
                             <constraint firstItem="CeF-Nw-wsO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yp8-cn-vry"/>
+                            <constraint firstItem="Gay-0j-GHK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kzs-yI-QQI"/>
                             <constraint firstItem="CeF-Nw-wsO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nCW-td-aAD"/>
+                            <constraint firstItem="Gay-0j-GHK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s2Q-CH-A87"/>
+                            <constraint firstItem="Gay-0j-GHK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-109.5" id="uXx-BT-AZp"/>
+                            <constraint firstItem="Gay-0j-GHK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wcA-7y-1tI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mvj-wT-fl9"/>

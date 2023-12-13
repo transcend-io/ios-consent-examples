@@ -36,6 +36,11 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(storyboard, animated: true)
         
     }
+    @IBAction func storybtnCLICKED(_ sender: Any) {
+        let secondStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        let secondViewController = secondStoryboard.instantiateViewController(withIdentifier: "View3Controller") as UIViewController
+        navigationController?.pushViewController(secondViewController, animated: true)
+    }
     
 }
 
