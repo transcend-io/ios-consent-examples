@@ -8,26 +8,45 @@
 import UIKit
 import Transcend
 import SwiftUI
+import WebKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Initialize the SwiftUI View
-        let transcendWebView = TranscendWebViewUI(transcendConsentUrl: "https://transcend-cdn.com/cm/a3b53de6-5a46-427a-8fa4-077e4c015f93/airgap.js", isInit: true) { result in
-            switch result {
-            case .success:
-                print("Web view navigation succeeded.")
-            case .failure(let error):
-                print("Web view navigation failed: \(error.localizedDescription)")
-            }
+//        // Approach 1: Initialize the SwiftUI View
+//        let transcendWebView = TranscendWebViewUI(transcendConsentUrl: "https://transcend-cdn.com/cm/a3b53de6-5a46-427a-8fa4-077e4c015f93/airgap.js", isInit: true) { result in
+//            switch result {
+//            case .success:
+//                print("Web view navigation succeeded.")
+//            case .failure(let error):
+//                print("Web view navigation failed: \(error.localizedDescription)")
+//            }
+//        }
+//        // Create hosting controller
+//        let hostingController = UIHostingController(rootView: transcendWebView)
+//        addChild(hostingController)
+//        // add hostingController's view as subView
+//        view.addSubview(hostingController.view)
+//        hostingController.didMove(toParent: self)
+        
+        // Approach 2: Initialize the TranscendWebView UIView
+        let actualUIView = TranscendWebView.createOrGetInstance(
+                    frame: CGRect.zero,
+                    configuration: WKWebViewConfiguration(),
+                    transcendConsentUrl: "https://transcend-cdn.com/cm/a3b53de6-5a46-427a-8fa4-077e4c015f93/airgap.js"){ result in
+                        switch result {
+                            case .success:
+                                print("Web view navigation succeeded.")
+                            case .failure(let error):
+                                print("Web view navigation failed: \(error.localizedDescription)")
+                        }
+                    }
+        if(actualUIView != nil){
+            view.addSubview(actualUIView!)
         }
-        // Create hosting controller
-        let hostingController = UIHostingController(rootView: transcendWebView)
-        addChild(hostingController)
-        // add hostingController's view as subView
-        view.addSubview(hostingController.view)
-        hostingController.didMove(toParent: self)
+                
+        
         
     }
 
