@@ -1,0 +1,89 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Transcend
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import Swift
+import SwiftUI
+@_exported import Transcend
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+@available(iOS 13.0, *)
+public struct TranscendWebViewUI : SwiftUI.View {
+  public var transcendConsentUrl: Swift.String
+  public var isInit: Swift.Bool
+  public var didFinishNavigation: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?
+  public init(transcendConsentUrl: Swift.String, isInit: Swift.Bool, didFinishNavigation: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9Transcend0A9WebViewUIV4bodyQrvp", 0) __
+}
+@available(iOS 13.0, *)
+public struct TranscendWebViewWrapper : SwiftUI.UIViewRepresentable {
+  public var didFinishNavigation: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?
+  public init(transcendConsentUrl: Swift.String, isInit: Swift.Bool, didFinishNavigation: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: Transcend.TranscendWebViewWrapper.Context) -> Transcend.TranscendWebView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: Transcend.TranscendWebView, context: Transcend.TranscendWebViewWrapper.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = Transcend.TranscendWebView
+}
+public struct TrackingConsentDetails : Swift.Codable {
+  public var purposes: [Swift.String : Transcend.Value]
+  public var confirmed: Swift.Bool
+  public var prompted: Swift.Bool
+  public var timestamp: Swift.String
+  public var updated: Swift.Bool
+  public var metadata: Transcend.Value?
+  public var metadataTimestamp: Swift.String
+  public init()
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum Value : Swift.Codable {
+  case bool(Swift.Bool)
+  case string(Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class WebAppInterface {
+  public init(webView: WebKit.WKWebView)
+  public func getRegimes(completionHandler: @escaping (Swift.Set<Swift.String>?, Swift.Error?) -> Swift.Void)
+  public func getConsent(completionHandler: @escaping (Transcend.TrackingConsentDetails?, Swift.Error?) -> Swift.Void)
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) public class TranscendWebView : WebKit.WKWebView, WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) public static var transcendAPI: Transcend.TranscendWebView!
+  @_Concurrency.MainActor(unsafe) public var webAppInterface: Transcend.WebAppInterface!
+  @_Concurrency.MainActor(unsafe) public var transcendConsentUrl: Swift.String
+  @_Concurrency.MainActor(unsafe) public var didFinishNavigation: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreFoundation.CGRect, configuration: WebKit.WKWebViewConfiguration, transcendConsentUrl: Swift.String, didFinishNavigation: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: Swift.Error)
+  @_Concurrency.MainActor(unsafe) public static func createOrGetInstance(frame: CoreFoundation.CGRect, configuration: WebKit.WKWebViewConfiguration, transcendConsentUrl: Swift.String, didFinishNavigation: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)? = nil) -> Transcend.TranscendWebView!
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class IABConstants {
+  public static let IAB_TCF_CMP_SDK_ID: Swift.String
+  public static let IAB_TCF_CMP_SDK_VERSION: Swift.String
+  public static let IAB_TCF_POLICY_VERSION: Swift.String
+  public static let IAB_TCF_GDPR_APPLIES: Swift.String
+  public static let IAB_TCF_PUBLISHER_CC: Swift.String
+  public static let IAB_TCF_PURPOSE_ONE_TREATMENT: Swift.String
+  public static let IAB_TCF_TC_STRING: Swift.String
+  public static let IAB_TCF_VENDOR_CONSENTS: Swift.String
+  public static let IAB_TCF_VENDOR_LEGITIMATE_INTERESTS: Swift.String
+  public static let IAB_TCF_PURPOSE_CONSENTS: Swift.String
+  public static let IAB_TCF_PURPOSE_LEGITIMATE_INTERESTS: Swift.String
+  public static let IAB_TCF_SPECIAL_FEATURE_OPT_INS: Swift.String
+  public static let IAB_TCF_PUBLISHER_RESTRICTIONS: Swift.String
+  public static let IAB_TCF_PUBLISHER_CONSENT: Swift.String
+  public static let IAB_TCF_PUBLISHER_LEGITIMATE_INTERESTS: Swift.String
+  public static let IAB_TCF_PUBLISHER_CUSTOM_PURPOSES_CONSENTS: Swift.String
+  public static let IAB_TCF_PUBLISHER_CUSTOM_PURPOSES_LEGITIMATE_INTERESTS: Swift.String
+  @objc deinit
+}
